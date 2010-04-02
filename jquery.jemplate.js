@@ -12,7 +12,8 @@
 $.jemplate = function(template, substs) {
 
 	return template.replace(/\{\$([^}]+)\}/g, function(match, name) {
-		return substs[name];
+		var subst = substs[name];
+		return typeof subst != 'undefined'? subst : '';
 	});
 
 };
